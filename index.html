@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>장전 브리핑</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <div class="kicker">장전 브리핑</div>
+      <h1>오늘 볼 3개 + 크립토 1줄</h1>
+      <nav class="datenav">
+        <a id="prev" href="#" aria-label="이전 브리핑">←</a>
+        <select id="datepick" aria-label="날짜 선택"></select>
+        <a id="next" href="#" aria-label="다음 브리핑">→</a>
+      </nav>
+      <p id="fallback-note" class="note" hidden></p>
+    </header>
+    <main id="app" aria-live="polite">
+      <p class="note">브리핑을 불러오는 중…</p>
+    </main>
+    <footer id="foot"></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
