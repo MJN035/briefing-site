@@ -1,5 +1,7 @@
 const $ = (s) => document.querySelector(s);
-const esc = (t) => { const d = document.createElement("div"); d.textContent = t ?? ""; return d.innerHTML; };
+const esc = (t) => String(t ?? "")
+  .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;").replaceAll("'", "&#39;");
 // "unknown"은 회색 이탤릭으로 (Global Constraints)
 const uw = (t) => esc(t).replaceAll("unknown", '<span class="unk">unknown</span>');
 const lblClass = (l) => (l === "1차" ? "lbl-1" : l === "추정" ? "lbl-est" : "lbl-2");
