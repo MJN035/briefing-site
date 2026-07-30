@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 
 const file = process.argv[2];
 if (!file) {
-  console.error("사용법: node site/validate.mjs <data/YYYY-MM-DD.json>");
+  console.error("사용법: node validate.mjs <data/YYYY-MM-DD.json>");
   process.exit(1);
 }
 
@@ -41,6 +41,7 @@ const AXES = ["국내 거시", "글로벌 금융", "테크"];
 req(typeof d.crypto?.text === "string" && d.crypto.text, "crypto.text 필요");
 req(typeof d.verdict === "string" && d.verdict, "verdict 필요");
 req(Array.isArray(d.holes), "holes는 배열");
+req(Array.isArray(d.opened), "opened는 배열");
 
 // 조언 금지 — 흔한 조언 표현이 있으면 경고 (매도세/매수세 같은 서술은 통과)
 const flat = JSON.stringify(d);
